@@ -14,6 +14,8 @@ export default defineConfig({
   routes: [
     { path: '/', redirect: '/dashboard' },
 
+    { path: '/login', layout: false, component: './Login' },
+    
     {
       name: 'Dashboard',
       path: '/dashboard',
