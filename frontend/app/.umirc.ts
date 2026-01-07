@@ -15,7 +15,7 @@ export default defineConfig({
     { path: '/', redirect: '/dashboard' },
 
     { path: '/login', layout: false, component: './Login' },
-    
+
     {
       name: 'Dashboard',
       path: '/dashboard',
@@ -28,10 +28,32 @@ export default defineConfig({
       path: '/clinic',
       icon: 'HeartOutlined',
       routes: [
-        { name: 'Müşteriler', path: '/clinic/customers', component: './Customers', icon: 'TeamOutlined' },
-        { name: 'Hastalar', path: '/clinic/pets', component: './Pets', icon: 'MedicineBoxOutlined' },
-        { name: 'Randevular', path: '/clinic/appointments', component: './Appointments', icon: 'CalendarOutlined' },
-        { name: 'Tedaviler', path: '/clinic/treatments', component: './Treatments', icon: 'ExperimentOutlined' },
+        {
+          name: 'Müşteriler',
+          path: '/clinic/customers',
+          component: './Customers',
+          icon: 'TeamOutlined',
+          access: 'canAssistantOrAbove',
+        },
+        {
+          name: 'Hastalar',
+          path: '/clinic/pets',
+          component: './Pets',
+          icon: 'MedicineBoxOutlined',
+        },
+        {
+          name: 'Randevular',
+          path: '/clinic/appointments',
+          component: './Appointments',
+          icon: 'CalendarOutlined',
+        },
+        {
+          name: 'Tedaviler',
+          path: '/clinic/treatments',
+          component: './Treatments',
+          icon: 'ExperimentOutlined',
+          access: 'canVetOrAdmin',
+        },
       ],
     },
 
@@ -39,9 +61,23 @@ export default defineConfig({
       name: 'Sistem',
       path: '/system',
       icon: 'SettingOutlined',
+      // Route güvenliği kalsın:
+      access: 'canAdmin',
       routes: [
-        { name: 'Kullanıcılar', path: '/system/users', component: './Users', icon: 'UserOutlined' },
-        { name: 'Roller & Yetkiler', path: '/system/roles', component: './Roles', icon: 'SafetyOutlined' },
+        {
+          name: 'Kullanıcılar',
+          path: '/system/users',
+          component: './Users',
+          icon: 'UserOutlined',
+          access: 'canAdmin',
+        },
+        {
+          name: 'Roller & Yetkiler',
+          path: '/system/roles',
+          component: './Roles',
+          icon: 'SafetyOutlined',
+          access: 'canAdmin',
+        },
       ],
     },
 

@@ -33,18 +33,26 @@ export default function LoginPage() {
             },
           }}
           onFinish={async (values) => {
-            if (values.username === 'admin' && values.password === 'admin') {
-              localStorage.setItem(
-                'vetark_user',
-                JSON.stringify({ name: 'Admin', role: 'admin' }),
-              );
-              message.success('Giriş başarılı');
-              history.push('/dashboard');
-              return true;
-            }
-            message.error('Hatalı kullanıcı adı veya şifre');
-            return false;
-          }}
+          const u = String(values.username || '').trim();
+          const p = String(values.password || '').trim();
+
+          const users: Record<string, { password: string; name: string; role: 'admin'|'vet'|'assistant' }> = {
+            admin: { password: 'admin', name: 'Admin', role: 'admin' },
+            vet: { password: 'vet', name: 'Veteriner', role: 'vet' },
+            asistan: { password: 'asistan', name: 'Asistan', role: 'assistant' },
+          };
+
+          const found = users[u];
+          if (found && found.password === p) {
+            localStorage.setItem('vetark_user', JSON.stringify({ name: found.name, role: found.role }));
+            message.success(`Giriş başarılı (${found.role})`);
+            window.location.href = '/dashboard';
+            return true;
+          }
+
+          message.error('Hatalı kullanıcı adı veya şifre');
+          return false;
+        }}
         >
           <ProFormText
             name="username"
@@ -61,7 +69,7 @@ export default function LoginPage() {
         </LoginForm>
 
         <div style={{ marginTop: 12, fontSize: 12, opacity: 0.7 }}>
-          Demo: <b>admin / admin</b>
+        Demo: <b>admin/admin</b> • <b>vet/vet</b> • <b>asistan/asistan</b>
         </div>
       </div>
     </div>
