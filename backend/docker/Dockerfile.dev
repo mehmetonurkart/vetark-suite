@@ -1,0 +1,13 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# backend/app içindeki package dosyalarını kopyala
+COPY backend/app/package*.json ./
+RUN npm install
+
+# backend/app kodunu kopyala
+COPY backend/app/ ./
+
+EXPOSE 5000
+CMD ["npm", "run", "dev"]

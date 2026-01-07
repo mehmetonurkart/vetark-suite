@@ -1,0 +1,12 @@
+.git
+**/node_modules
+**/.umi
+**/dist
+**/build
+**/.cache
+**/*.log
+**/*.zip
+**/*.rar
+**/*.7z
+.DS_Store
+Thumbs.db
