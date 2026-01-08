@@ -10,7 +10,9 @@ export default defineConfig({
   layout: {
     title: 'VetArk',
   },
-
+  define: {
+    'process.env.VETARK_API_BASE_URL': process.env.VETARK_API_BASE_URL,
+  },
   routes: [
     { path: '/', redirect: '/dashboard' },
 
@@ -22,7 +24,7 @@ export default defineConfig({
       component: './Dashboard',
       icon: 'DashboardOutlined',
     },
-
+    
     {
       name: 'Klinik',
       path: '/clinic',
@@ -80,6 +82,7 @@ export default defineConfig({
         },
       ],
     },
+    { name: 'API Test', path: '/api-test', component: './ApiTest' },
 
     { path: '*', layout: false, component: './404' },
   ],
