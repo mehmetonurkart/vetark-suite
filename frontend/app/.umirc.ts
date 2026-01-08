@@ -10,9 +10,7 @@ export default defineConfig({
   layout: {
     title: 'VetArk',
   },
-  define: {
-    'process.env.VETARK_API_BASE_URL': process.env.VETARK_API_BASE_URL,
-  },
+  
   routes: [
     { path: '/', redirect: '/dashboard' },
 

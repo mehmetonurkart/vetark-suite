@@ -5,8 +5,7 @@ import { useState } from 'react';
 const { Paragraph } = Typography;
 
 const API = (path: string) => {
-  const base = (window as any).__VETARK_API__ || process.env.VETARK_API_BASE_URL;
-  // Vercel prod için: window env yok; base'i aşağıdaki notla çözeceğiz.
+  const base = (window as any).__VETARK_API_BASE_URL__;
   return `${base}${path}`;
 };
 

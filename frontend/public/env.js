@@ -1,0 +1,1 @@
+window.__VETARK_API_BASE_URL__ = "https://vetark-backend.onrender.com";
