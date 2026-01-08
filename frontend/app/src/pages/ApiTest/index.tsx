@@ -6,7 +6,10 @@ const { Paragraph } = Typography;
 
 const API = (path: string) => {
   const base = (window as any).__VETARK_API_BASE_URL__;
-  return `${base}${path}`;
+  if (!base) {
+    throw new Error('API BASE YOK → env.js yüklenmedi');
+  }
+  return `${String(base).replace(/\/$/, '')}${path}`;
 };
 
 export default function ApiTest() {

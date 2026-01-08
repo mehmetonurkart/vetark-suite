@@ -10,6 +10,12 @@ export default defineConfig({
   layout: {
     title: 'VetArk',
   },
+
+  headScripts: [
+  {
+    src: '/env.js',
+  },
+  ],
   
   routes: [
     { path: '/', redirect: '/dashboard' },
