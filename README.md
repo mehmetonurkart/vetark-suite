@@ -1,73 +1,73 @@
 # Vetark Suite
 
-This repository is the new generic monorepo foundation for the project.
+Vetark Suite is the new monorepo foundation for the project.
 
-The old codebase stays untouched under `oldversion/`. The new work starts from the
-root with separate frontend and backend applications.
+It is designed around a clean separation between frontend and backend, a
+feature-first folder structure, and a local development stack that is easy to
+understand, extend, and maintain.
 
-## Installed in this step
+## Overview
 
-1. Docker Desktop presence was verified on this machine.
-2. A Turborepo workspace was created for the new structure.
-3. `apps/web` was created as a Next.js application.
-4. `apps/api` was created as a NestJS application.
-5. PostgreSQL and Redis were added with Docker Compose.
+- Frontend and backend live in separate applications
+- Shared tooling is managed from a single Turborepo workspace
+- PostgreSQL and Redis are available through Docker Compose
+- Feature code is grouped by domain so each area can evolve independently
+- The local `oldversion/` directory is kept only as a migration reference and is
+  intentionally excluded from Git history
 
-## Current structure
+## Tech Stack
+
+- Monorepo: Turborepo
+- Frontend: Next.js 16, React 19, App Router
+- Backend: NestJS 11
+- Language: TypeScript
+- Database: PostgreSQL 16
+- Cache: Redis 7
+- Package manager: npm workspaces
+
+## Workspace Layout
 
 ```text
 vetark-suite/
 |-- apps/
 |   |-- api/
-|   |   |-- src/
-|   |   |   |-- configure-app.ts
-|   |   |   `-- modules/
-|   |   |       `-- health/
-|   |   |-- test/
-|   |   `-- .env.example
 |   `-- web/
-|       |-- app/
-|       |-- src/
-|       |   `-- features/
-|       |       `-- home/
-|       `-- .env.example
+|-- docs/
+|   |-- architecture.md
+|   |-- conventions.md
+|   |-- roadmap.md
+|   `-- README.md
 |-- packages/
 |   |-- eslint-config/
 |   |-- typescript-config/
 |   `-- ui/
 |-- oldversion/
 |-- docker-compose.yml
-|-- turbo.json
-`-- package.json
+|-- package.json
+|-- README.md
+`-- turbo.json
 ```
 
-## What each main path is for
+## Core Directories
 
-- `apps/api`: backend service
-- `apps/api/src/configure-app.ts`: shared API bootstrap rules
-- `apps/api/src/modules`: backend feature folders
-- `apps/api/src/modules/health`: starter backend module for API health checks
-- `apps/api/test`: API end-to-end tests
-- `apps/web`: frontend service
-- `apps/web/app`: route files for Next.js
-- `apps/web/src/features`: frontend feature folders
-- `apps/web/src/features/home`: starter frontend feature for the landing page
-- `packages/ui`: shared UI package for reusable frontend components
-- `packages/eslint-config`: shared lint rules
+- `apps/web`: Next.js frontend application
+- `apps/api`: NestJS backend application
+- `packages/ui`: shared UI package for reusable frontend primitives
+- `packages/eslint-config`: shared lint configuration
 - `packages/typescript-config`: shared TypeScript presets
-- `oldversion`: previous version kept as reference only
-- `docker-compose.yml`: local PostgreSQL and Redis services
-- `.env.example`: root Docker variable template
+- `docs`: project-level documentation and planning notes
+- `oldversion`: local-only legacy reference, not committed to the repository
 
-## Feature folder rule
+## Feature-First Structure
 
-This repo will follow a feature-first convention.
+The project follows a feature-first convention on both sides of the stack.
 
 Frontend example:
 
 - `apps/web/src/features/login/components/`
 - `apps/web/src/features/login/hooks/`
 - `apps/web/src/features/login/api/`
+- `apps/web/src/features/login/schema/`
 
 Backend example:
 
@@ -76,11 +76,10 @@ Backend example:
 - `apps/api/src/modules/login/login.service.ts`
 - `apps/api/src/modules/login/dto/`
 
-This means when a feature such as login is added, everything related to that
-feature should live inside its own frontend and backend folders. If that feature
-is removed later, the removal stays isolated.
+This keeps each domain isolated. When a feature changes, the related code is
+easy to find. When a feature is removed, the cleanup stays localized.
 
-## Local development
+## Quick Start
 
 Install dependencies:
 
@@ -88,28 +87,66 @@ Install dependencies:
 npm install
 ```
 
-Run both apps with Turbo:
+Start infrastructure:
+
+```bash
+docker compose up -d
+```
+
+Run the full workspace:
 
 ```bash
 npm run dev
 ```
 
-Run one app only:
+Run a single application:
 
 ```bash
 npm run dev --workspace web
 npm run dev --workspace api
 ```
 
-Bring up PostgreSQL and Redis:
-
-```bash
-docker compose up -d
-```
-
-## Default local URLs
+## Default Local Endpoints
 
 - Web: `http://localhost:3000`
-- API: `http://localhost:4000/api/health`
+- API health: `http://localhost:4000/api/health`
 - PostgreSQL: `localhost:5432`
 - Redis: `localhost:6379`
+
+## Root Commands
+
+- `npm run dev`: run active development tasks through Turbo
+- `npm run build`: build all workspace apps and packages
+- `npm run lint`: run lint checks across the workspace
+- `npm run check-types`: run TypeScript checks across the workspace
+- `npm run docker:up`: start PostgreSQL and Redis
+- `npm run docker:down`: stop local infrastructure
+- `npm run docker:logs`: stream Docker Compose logs
+
+## Documentation
+
+Project documentation lives in `docs/`.
+
+- `docs/README.md`: documentation index
+- `docs/architecture.md`: system structure and responsibility boundaries
+- `docs/conventions.md`: folder rules and naming conventions
+- `docs/roadmap.md`: high-level project roadmap
+
+## Current Status
+
+The repository currently includes:
+
+- a working Turborepo workspace
+- a starter Next.js frontend
+- a starter NestJS backend
+- a local PostgreSQL and Redis stack
+- baseline documentation for architecture, conventions, and roadmap
+
+## Roadmap Summary
+
+- Phase 1: foundation and infrastructure
+- Phase 2: authentication and account flows
+- Phase 3: domain modules and shared business logic
+- Phase 4: operational hardening, testing, and deployment
+
+Detailed planning lives in `docs/roadmap.md`.
