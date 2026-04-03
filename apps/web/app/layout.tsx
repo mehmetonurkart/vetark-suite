@@ -13,8 +13,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Vetark Suite Web",
-  description: "Frontend application for the Vetark Suite monorepo",
+  title: "Vetark Suite",
+  description: "Vetark Suite frontend with login and dashboard flows",
 };
 
 export default function RootLayout({

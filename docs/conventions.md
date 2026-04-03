@@ -22,6 +22,7 @@ Typical frontend feature contents:
 - `api/`
 - `schema/`
 - `types/`
+- `README.md`
 
 Example:
 
@@ -45,6 +46,7 @@ Typical backend feature contents:
 - `dto/`
 - `entities/`
 - `guards/`
+- `README.md`
 
 Example:
 
@@ -77,5 +79,7 @@ Do not place app-specific business logic in shared packages.
 When a new major module or flow is added, update:
 
 - the nearest app-level README when the app structure changes
+- the nearest feature README so the folder explains its own purpose
 - `docs/architecture.md` when architectural boundaries change
+- `docs/authentication.md` when login or session behavior changes
 - `docs/roadmap.md` when the project phase changes

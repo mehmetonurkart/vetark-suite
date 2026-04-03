@@ -110,8 +110,22 @@ npm run dev --workspace api
 
 - Web: `http://localhost:3000`
 - API health: `http://localhost:4000/api/health`
+- API login: `http://localhost:4000/api/login`
 - PostgreSQL: `localhost:5432`
 - Redis: `localhost:6379`
+
+## Local Credentials
+
+Local development currently ships with a starter database user and a starter
+application login.
+
+- PostgreSQL user: `vetark`
+- PostgreSQL password: `vetark41543`
+- Demo login username: `vetark`
+- Demo login password: `vetark4154`
+
+The database user is used by the backend through `DATABASE_URL`. The demo login
+user is seeded into the `app_users` table by `npm run db:setup --workspace api`.
 
 ## Root Commands
 
@@ -129,6 +143,7 @@ Project documentation lives in `docs/`.
 
 - `docs/README.md`: documentation index
 - `docs/architecture.md`: system structure and responsibility boundaries
+- `docs/authentication.md`: login flow, session behavior, and local credentials
 - `docs/conventions.md`: folder rules and naming conventions
 - `docs/roadmap.md`: high-level project roadmap
 
@@ -137,15 +152,15 @@ Project documentation lives in `docs/`.
 The repository currently includes:
 
 - a working Turborepo workspace
-- a starter Next.js frontend
-- a starter NestJS backend
+- a Next.js frontend with login and dashboard screens
+- a NestJS backend with session-based login endpoints
 - a local PostgreSQL and Redis stack
 - baseline documentation for architecture, conventions, and roadmap
 
 ## Roadmap Summary
 
 - Phase 1: foundation and infrastructure
-- Phase 2: authentication and account flows
+- Phase 2: authentication and account flows is in progress
 - Phase 3: domain modules and shared business logic
 - Phase 4: operational hardening, testing, and deployment
 

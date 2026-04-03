@@ -12,12 +12,25 @@ Status: completed
 
 ## Phase 2: Authentication
 
-Status: next
+Status: in progress
 
 - design the login and session model
 - add frontend authentication screens
 - add backend authentication module
 - define token, session, and access control strategy
+
+Completed in the current iteration:
+
+- oldversion-inspired login screen
+- oldversion-inspired visual dashboard shell
+- session-cookie based local login flow
+- seeded demo login account in PostgreSQL
+
+Next inside this phase:
+
+- replace the starter `app_users` table with the long-term user model
+- define role and permission guards
+- add password-reset and session-expiration handling
 
 ## Phase 3: Domain Modules
 

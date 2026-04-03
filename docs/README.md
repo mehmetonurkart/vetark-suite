@@ -6,6 +6,8 @@ This directory contains project-level documentation for Vetark Suite.
 
 - `architecture.md`: explains the monorepo layout, app boundaries, and shared
   infrastructure responsibilities
+- `authentication.md`: explains the current login flow, local credentials, and
+  auth-related folders
 - `conventions.md`: defines folder rules, naming rules, and feature-first
   organization standards
 - `roadmap.md`: tracks the high-level delivery phases for the project
@@ -15,5 +17,6 @@ This directory contains project-level documentation for Vetark Suite.
 Use these documents as the reference layer above the codebase:
 
 - start with `architecture.md` to understand the overall system
+- use `authentication.md` when working on login, session, or dashboard access
 - use `conventions.md` when adding new modules or screens
 - use `roadmap.md` to align new work with the current delivery phase

@@ -1,0 +1,407 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  background: #eef3f7;
+}
+
+.loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  color: #4d617a;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 20px;
+  background: linear-gradient(180deg, #223247 0%, #2f425d 100%);
+  color: #edf4fb;
+}
+
+.brandBlock {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brandIcon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #28b4c8 0%, #7ec8e3 100%);
+  color: #163245;
+  font-weight: 800;
+}
+
+.brandTitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.brandCaption {
+  font-size: 0.86rem;
+  color: #b9cadb;
+}
+
+.profileCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.profileCard span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.82rem;
+  color: #bfd1e4;
+}
+
+.profileCard strong {
+  font-size: 1rem;
+}
+
+.profileImage {
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.menu {
+  display: grid;
+  gap: 10px;
+}
+
+.menuItem,
+.menuItemActive {
+  padding: 12px 14px;
+  border-radius: 14px;
+  color: #d7e4f2;
+}
+
+.menuItem {
+  background: transparent;
+}
+
+.menuItemActive {
+  background: rgba(126, 200, 227, 0.18);
+  color: #ffffff;
+}
+
+.sidebarFooter {
+  margin-top: auto;
+}
+
+.logoutButton {
+  width: 100%;
+  height: 46px;
+  border: 0;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+}
+
+.main {
+  padding: 24px;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 18px 48px rgba(32, 53, 83, 0.08);
+}
+
+.topBarLabel {
+  margin-bottom: 8px;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6a7f98;
+}
+
+.topBar h1 {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  line-height: 1.05;
+}
+
+.topBarUser {
+  min-width: 140px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f2f6fa 0%, #e4edf6 100%);
+  text-align: right;
+}
+
+.topBarUser span {
+  display: block;
+  font-size: 0.85rem;
+  color: #5d728b;
+}
+
+.topBarUser strong {
+  font-size: 1rem;
+}
+
+.tiles {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.tile {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(32, 53, 83, 0.06);
+}
+
+.tile span {
+  font-size: 0.85rem;
+  color: #6f8298;
+}
+
+.tile strong {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.tile small {
+  font-size: 0.82rem;
+}
+
+.green {
+  border-top: 4px solid #2fb182;
+}
+
+.blue {
+  border-top: 4px solid #4d86d9;
+}
+
+.amber {
+  border-top: 4px solid #d69a45;
+}
+
+.heroRow {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+}
+
+.heroPanel,
+.sidePanel,
+.panel {
+  padding: 24px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 18px 48px rgba(32, 53, 83, 0.08);
+}
+
+.heroPanelHeader,
+.panelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.panelEyebrow {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #7a8ca2;
+}
+
+.heroPanel h2,
+.sidePanel h2,
+.panel h2 {
+  font-size: 1.4rem;
+  line-height: 1.15;
+}
+
+.statusBadge {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(47, 177, 130, 0.14);
+  color: #217456;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.progressGroup {
+  margin-top: 28px;
+  display: grid;
+  gap: 16px;
+}
+
+.progressGroup span {
+  display: block;
+  margin-bottom: 8px;
+  color: #53677f;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: #eaf0f5;
+  overflow: hidden;
+}
+
+.progressFillStrong,
+.progressFillMedium,
+.progressFillLight {
+  height: 100%;
+  border-radius: inherit;
+}
+
+.progressFillStrong {
+  width: 82%;
+  background: linear-gradient(90deg, #223247, #4d86d9);
+}
+
+.progressFillMedium {
+  width: 68%;
+  background: linear-gradient(90deg, #2fb182, #6ecfb3);
+}
+
+.progressFillLight {
+  width: 54%;
+  background: linear-gradient(90deg, #d69a45, #efc57d);
+}
+
+.speciesGrid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.speciesCard {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f2f6fa 0%, #ecf3f9 100%);
+}
+
+.speciesCard strong {
+  font-size: 1rem;
+}
+
+.speciesCard span {
+  color: #61748d;
+}
+
+.contentGrid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+}
+
+.reminderList {
+  margin-top: 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.reminderItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 18px;
+  background: #f6f9fc;
+}
+
+.reminderItem strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.reminderItem p {
+  color: #5f7288;
+  line-height: 1.55;
+}
+
+.reminderItem span {
+  min-width: 56px;
+  font-weight: 700;
+  color: #223247;
+}
+
+.quickGrid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.quickCard {
+  min-height: 96px;
+  border: 0;
+  border-radius: 20px;
+  padding: 18px;
+  background: linear-gradient(135deg, #223247 0%, #3d5f82 100%);
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .tiles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .heroRow,
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .main {
+    padding: 16px;
+  }
+
+  .topBar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tiles,
+  .quickGrid,
+  .speciesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .reminderItem {
+    flex-direction: column;
+  }
+}

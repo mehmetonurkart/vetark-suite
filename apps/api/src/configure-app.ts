@@ -1,13 +1,19 @@
-import type { INestApplication } from '@nestjs/common';
+import { ValidationPipe, type INestApplication } from '@nestjs/common';
+import cookieParser from 'cookie-parser';
+import { appEnv } from './config/env';
 
 export function configureApp(app: INestApplication): void {
-  const corsOrigins = process.env.CORS_ORIGIN?.split(',')
-    .map((value) => value.trim())
-    .filter(Boolean);
-
+  app.use(cookieParser());
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      transform: true,
+      forbidNonWhitelisted: true,
+    }),
+  );
   app.setGlobalPrefix('api');
   app.enableCors({
-    origin: corsOrigins?.length ? corsOrigins : true,
+    origin: appEnv.corsOrigins,
     credentials: true,
   });
 }
